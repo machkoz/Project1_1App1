@@ -1,0 +1,114 @@
+﻿<Window x:Class="Projekt1_1App1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Projekt1_1App1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Label  Content="Rezystancja zastępcza: " Width="132"/>
+            <TextBox x:Name="ResuaSumma" Text="40" MinWidth="100" RenderTransformOrigin="-0.439,2.377"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Label  Content="Napięcie wejściowe: " Width="132"/>
+            <TextBox x:Name="ResistDivide" Text="230" MinWidth="100"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Label  Content="Napięcie wyjściowe: " Width="132"/>
+            <TextBox x:Name="ResistDuo" Text="24" MinWidth="100"/>
+            <Button Click="Button_Click4" Content="Wstaw U(wy)  : : Automat  : : 1 klik  : : WYNIK : :" Tag="R12" Width="253"/>
+            <Label x:Name="ResultViewR" Width="34" Content="R = ">
+            </Label>
+            <Label x:Name="ResultR" Width="162" Content="Wynik">
+            </Label>
+            <Label x:Name="ResultViewR1" Width="34" Content="R1 = ">
+            </Label>
+            <Label x:Name="ResultR1" Width="162" Content="Wynik">
+            </Label>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Label x:Name="ResultViewPropose" Width="72" Content="Wariant 1: ">
+            </Label>
+            <Label x:Name="ResultViewVolt" Width="60" Content="U(wy/p) = ">
+            </Label>
+            <Label x:Name="ResultVol" Width="92" Content="Wynik">
+            </Label>
+            <Label x:Name="ResultViewRes" Width="47" Content="R(p) = ">
+            </Label>
+            <Label x:Name="ResultViewRe" Width="92" Content="Wynik">
+            </Label>
+            <Label x:Name="ResultViewRes1" Width="50" Content="R1(p) = ">
+            </Label>
+            <Label x:Name="ResultViewRe1" Width="92" Content="Wynik">
+            </Label>    
+            <Label x:Name="ResultViewRes2" Width="70" Content="Rez.zast. = ">
+            </Label>
+            <Label x:Name="ResultSuma1" Width="92" Content="Wynik">
+            </Label>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Label x:Name="ResultViewPropose20" Width="72" Content="Wariant 2: ">
+            </Label>
+            <Label x:Name="ResultViewVolt20" Width="60" Content="U(wy/p) = ">
+            </Label>
+            <Label x:Name="ResultVol20" Width="92" Content="Wynik">
+            </Label>
+            <Label x:Name="ResultViewRes20" Width="47" Content="R(p) = ">
+            </Label>
+            <Label x:Name="ResultViewRe20" Width="92" Content="Wynik">
+            </Label>
+            <Label x:Name="ResultViewRes21" Width="50" Content="R1(p) = ">
+            </Label>
+            <Label x:Name="ResultViewRe21" Width="92" Content="Wynik">
+            </Label>
+            <Label x:Name="ResultViewRes22" Width="70" Content="Rez.zast. = ">
+            </Label>
+            <Label x:Name="ResultSuma2" Width="92" Content="Wynik">
+            </Label>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Label x:Name="ResultViewPropose322" Width="72" Content="Wariant 3: ">
+            </Label>
+            <Label x:Name="ResultViewVolt30" Width="60" Content="U(wy/p) = ">
+            </Label>
+            <Label x:Name="ResultVol30" Width="92" Content="Wynik">
+            </Label>
+            <Label x:Name="ResultViewRes30" Width="47" Content="R(p) = ">
+            </Label>
+            <Label x:Name="ResultViewRe30" Width="92" Content="Wynik">
+            </Label>
+            <Label x:Name="ResultViewRes31" Width="50" Content="R1(p) = ">
+            </Label>
+            <Label x:Name="ResultViewRe31" Width="92" Content="Wynik">
+            </Label>
+            <Label x:Name="ResultViewRes32" Width="70" Content="Rez.zast. = ">
+            </Label>
+            <Label x:Name="ResultSuma3" Width="92" Content="Wynik">
+            </Label>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Label x:Name="ResultViewPropose40" Width="72" Content="Wariant 4: ">
+            </Label>
+            <Label x:Name="ResultViewVolt40" Width="60" Content="U(wy/p) = ">
+            </Label>
+            <Label x:Name="ResultVol40" Width="92" Content="Wynik">
+            </Label>
+            <Label x:Name="ResultViewRes40" Width="47" Content="R(p) = ">
+            </Label>
+            <Label x:Name="ResultViewRe40" Width="92" Content="Wynik">
+            </Label>
+            <Label x:Name="ResultViewRes41" Width="50" Content="R1(p) = ">
+            </Label>
+            <Label x:Name="ResultViewRe41" Width="92" Content="Wynik">
+            </Label>
+            <Label x:Name="ResultViewRes42" Width="70" Content="Rez.zast. = ">
+            </Label>
+            <Label x:Name="ResultSuma4" Width="92" Content="Wynik">
+            </Label>
+        </StackPanel>
+    </StackPanel>
+</Window>
