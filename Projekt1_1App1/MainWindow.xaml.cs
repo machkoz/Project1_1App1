@@ -27,14 +27,17 @@ namespace Projekt1_1App1
         public MainWindow()
         {
             InitializeComponent();
-          //  FindNearestValueInR24(20);
+            //  FindNearestValueInR24(20);
         }
-        public int FindNearestValueInR(double valueToFind, List<int> ResintanceSeries)
+        public int FindNearestValueInR(double valueToFind, List<int> ResintanceSeries, double? exept = null)
         {
             var result = ResintanceSeries[0];
             for (int counter = 1; counter < ResintanceSeries.Count; counter++)
             {
                 var resistToCompare = ResintanceSeries[counter];
+
+                if ((exept.HasValue) && (resistToCompare == exept.Value)) continue;
+
                 double dR1Result = Math.Abs(result - valueToFind);
                 double dR2Result = Math.Abs(resistToCompare - valueToFind);
                 if (dR1Result > dR2Result)
@@ -51,22 +54,23 @@ namespace Projekt1_1App1
             var tenExponent = (-1) * Math.Floor(Math.Log10(valueToNorm)) + 1;
             double normalizedValue = valueToNorm * Math.Pow(10, tenExponent);
             double findedValue = 0;
-            
+
             findedValue = FindNearestValueInR(normalizedValue, whichSeries);
+            var secondFined = FindNearestValueInR(normalizedValue, whichSeries, findedValue);
             return findedValue * Math.Pow(10, -(tenExponent));
         }
-        
-        
+
+
         private void Button_Click4(object sender, RoutedEventArgs e)
         {
-            
+
 
             ResultR1.Content = Convert.ToDouble(ResistDuo.Text) * (Convert.ToDouble(ResuaSumma.Text)) / Convert.ToDouble(ResistDivide.Text);
             ResultR.Content = (Convert.ToDouble(ResuaSumma.Text)) - Convert.ToDouble(ResultR1.Content);
 
             double requestedValue = Convert.ToDouble(ResultR.Content);
             ResultViewRe.Content = FindValueNorm(requestedValue, ResistorArrayNumbers24);
-            
+
             double requestedValue2 = Convert.ToDouble(ResultR1.Content);
             ResultViewRe1.Content = FindValueNorm(requestedValue2, ResistorArrayNumbers12);
 
@@ -87,7 +91,7 @@ namespace Projekt1_1App1
 
             double requestedValue42 = Convert.ToDouble(ResultR1.Content);
             ResultViewRe41.Content = FindValueNorm(requestedValue2, ResistorArrayNumbers24);
-                       
+
             ResultVol.Content = (Convert.ToDouble(ResistDivide.Text) / (Convert.ToDouble(ResultViewRe.Content) + Convert.ToDouble(ResultViewRe1.Content))) * Convert.ToDouble(ResultViewRe1.Content);
             ResultVol20.Content = (Convert.ToDouble(ResistDivide.Text) / (Convert.ToDouble(ResultViewRe20.Content) + Convert.ToDouble(ResultViewRe21.Content))) * Convert.ToDouble(ResultViewRe21.Content);
             ResultVol30.Content = (Convert.ToDouble(ResistDivide.Text) / (Convert.ToDouble(ResultViewRe30.Content) + Convert.ToDouble(ResultViewRe31.Content))) * Convert.ToDouble(ResultViewRe31.Content);
