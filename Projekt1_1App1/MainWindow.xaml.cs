@@ -49,15 +49,22 @@ namespace Projekt1_1App1
             return result;
         }
 
-        private double FindValueNorm(double valueToNorm, List<int> whichSeries)
+        private double FindValueNorm(double valueToNorm, List<int> whichSeries, bool getSecondBest = false)
         {
             var tenExponent = (-1) * Math.Floor(Math.Log10(valueToNorm)) + 1;
             double normalizedValue = valueToNorm * Math.Pow(10, tenExponent);
-            double findedValue = 0;
+            double firstFinded = 0;
 
-            findedValue = FindNearestValueInR(normalizedValue, whichSeries);
-            var secondFined = FindNearestValueInR(normalizedValue, whichSeries, findedValue);
-            return findedValue * Math.Pow(10, -(tenExponent));
+            firstFinded = FindNearestValueInR(normalizedValue, whichSeries);
+            var secondFinded = FindNearestValueInR(normalizedValue, whichSeries, firstFinded);
+            if (getSecondBest)
+            {
+                return secondFinded * Math.Pow(10, -(tenExponent));
+            }
+            else
+            {
+                return firstFinded * Math.Pow(10, -(tenExponent));
+            }
         }
 
 
@@ -72,22 +79,22 @@ namespace Projekt1_1App1
             ResultViewRe.Content = FindValueNorm(requestedValue, ResistorArrayNumbers24);
 
             double requestedValue2 = Convert.ToDouble(ResultR1.Content);
-            ResultViewRe1.Content = FindValueNorm(requestedValue2, ResistorArrayNumbers12);
+            ResultViewRe1.Content = FindValueNorm(requestedValue2, ResistorArrayNumbers24);
 
             double requestedValue20 = Convert.ToDouble(ResultR.Content);
-            ResultViewRe20.Content = FindValueNorm(requestedValue, ResistorArrayNumbers24);
+            ResultViewRe20.Content = FindValueNorm(requestedValue, ResistorArrayNumbers24, true);
 
             double requestedValue22 = Convert.ToDouble(ResultR1.Content);
-            ResultViewRe21.Content = FindValueNorm(requestedValue2, ResistorArrayNumbers24);
+            ResultViewRe21.Content = FindValueNorm(requestedValue2, ResistorArrayNumbers24, true);
 
             double requestedValue30 = Convert.ToDouble(ResultR.Content);
-            ResultViewRe30.Content = FindValueNorm(requestedValue, ResistorArrayNumbers12);
+            ResultViewRe30.Content = FindValueNorm(requestedValue, ResistorArrayNumbers24);
 
             double requestedValue32 = Convert.ToDouble(ResultR1.Content);
-            ResultViewRe31.Content = FindValueNorm(requestedValue2, ResistorArrayNumbers12);
+            ResultViewRe31.Content = FindValueNorm(requestedValue2, ResistorArrayNumbers24, true);
 
             double requestedValue40 = Convert.ToDouble(ResultR.Content);
-            ResultViewRe40.Content = FindValueNorm(requestedValue, ResistorArrayNumbers12);
+            ResultViewRe40.Content = FindValueNorm(requestedValue, ResistorArrayNumbers24, true);
 
             double requestedValue42 = Convert.ToDouble(ResultR1.Content);
             ResultViewRe41.Content = FindValueNorm(requestedValue2, ResistorArrayNumbers24);
