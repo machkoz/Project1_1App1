@@ -110,42 +110,25 @@ namespace Projekt1_1App1
             ResultSuma4.Content = resultSuma4_a + resultSuma4_b;
 
 
-            double requestedValue_12 = Convert.ToDouble(ResultR.Content);
-            ResultViewRe_12.Content = FindValueNorm(requestedValue, ResistorArrayNumbers12);
-            double requestedValue2_12 = Convert.ToDouble(ResultR1.Content);
-            ResultViewRe1_12.Content = FindValueNorm(requestedValue2, ResistorArrayNumbers12);
-            ResultVol_12.Content = (Convert.ToDouble(ResistDivide.Text) / (Convert.ToDouble(ResultViewRe_12.Content) + Convert.ToDouble(ResultViewRe1_12.Content))) * Convert.ToDouble(ResultViewRe1_12.Content);
-            //double resultSuma1_a = (Convert.ToDouble(ResultViewRe.Content));
-            //double resultSuma1_b = (Convert.ToDouble(ResultViewRe1.Content));
-            ResultSuma1_12.Content = Convert.ToDouble(ResultViewRe_12.Content) + Convert.ToDouble(ResultViewRe1_12.Content);//= resultSuma1_a + resultSuma1_b;
+            R12_max_max.SetValue("Wariant 1",
+                FindValueNorm(requestedValue, ResistorArrayNumbers12),
+                FindValueNorm(requestedValue2, ResistorArrayNumbers12),
+                Convert.ToDouble(ResistDivide.Text));
 
-            double requestedValue20_12 = Convert.ToDouble(ResultR.Content);
-            ResultViewRe20_12.Content = FindValueNorm(requestedValue, ResistorArrayNumbers12, true);
-            double requestedValue22_12 = Convert.ToDouble(ResultR1.Content);
-            ResultViewRe21_12.Content = FindValueNorm(requestedValue2, ResistorArrayNumbers12, true);
-            ResultVol20_12.Content = (Convert.ToDouble(ResistDivide.Text) / (Convert.ToDouble(ResultViewRe20_12.Content) + Convert.ToDouble(ResultViewRe21_12.Content))) * Convert.ToDouble(ResultViewRe21_12.Content);
-            double resultSuma2_a_12 = (Convert.ToDouble(ResultViewRe20_12.Content));
-            double resultSuma2_b_12 = (Convert.ToDouble(ResultViewRe21_12.Content));
-            ResultSuma2_12.Content = resultSuma2_a_12 + resultSuma2_b_12;
+            R12_min_min.SetValue("Wariant 2",
+                FindValueNorm(requestedValue, ResistorArrayNumbers12, true),
+                FindValueNorm(requestedValue2, ResistorArrayNumbers12, true),
+                Convert.ToDouble(ResistDivide.Text));
 
-            double requestedValue30_12 = Convert.ToDouble(ResultR.Content);
-            ResultViewRe30_12.Content = FindValueNorm(requestedValue, ResistorArrayNumbers12);
-            double requestedValue32_12 = Convert.ToDouble(ResultR1.Content);
-            ResultViewRe31_12.Content = FindValueNorm(requestedValue2, ResistorArrayNumbers12, true);
-            ResultVol30_12.Content = (Convert.ToDouble(ResistDivide.Text) / (Convert.ToDouble(ResultViewRe30_12.Content) + Convert.ToDouble(ResultViewRe31_12.Content))) * Convert.ToDouble(ResultViewRe31_12.Content);
-            double resultSuma3_a_12 = (Convert.ToDouble(ResultViewRe30_12.Content));
-            double resultSuma3_b_12 = (Convert.ToDouble(ResultViewRe31_12.Content));
-            ResultSuma3_12.Content = resultSuma3_a_12 + resultSuma3_b_12;
+            R12_min_max.SetValue("Wariant 3",
+                FindValueNorm(requestedValue, ResistorArrayNumbers12, true),
+                FindValueNorm(requestedValue2, ResistorArrayNumbers12),
+                Convert.ToDouble(ResistDivide.Text));
 
-            double requestedValue40_12 = Convert.ToDouble(ResultR.Content);
-            ResultViewRe40_12.Content = FindValueNorm(requestedValue, ResistorArrayNumbers12, true);
-            double requestedValue42_12 = Convert.ToDouble(ResultR1.Content);
-            ResultViewRe41_12.Content = FindValueNorm(requestedValue2, ResistorArrayNumbers12);
-            ResultVol40_12.Content = (Convert.ToDouble(ResistDivide.Text) / (Convert.ToDouble(ResultViewRe40_12.Content) + Convert.ToDouble(ResultViewRe41_12.Content))) * Convert.ToDouble(ResultViewRe41_12.Content);
-            double resultSuma4_a_12 = (Convert.ToDouble(ResultViewRe40_12.Content));
-            double resultSuma4_b_12 = (Convert.ToDouble(ResultViewRe41_12.Content));
-            ResultSuma4_12.Content = resultSuma4_a_12 + resultSuma4_b_12;
-
+            R12_max_min.SetValue("Wariant 4",
+                FindValueNorm(requestedValue, ResistorArrayNumbers12),
+                FindValueNorm(requestedValue2, ResistorArrayNumbers12, true),
+                Convert.ToDouble(ResistDivide.Text));
         }
     }
 }
