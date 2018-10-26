@@ -75,12 +75,16 @@ namespace Projekt1_1App1
 
             double requestedValue = Convert.ToDouble(ResultR.Content);
             double requestedValue2 = Convert.ToDouble(ResultR1.Content);
-            
 
-            R24_max_max.SetValue("Wariant 1",
-                FindValueNorm(requestedValue, ResistorArrayNumbers24),
-                FindValueNorm(requestedValue2, ResistorArrayNumbers24),
-                Convert.ToDouble(ResistDivide.Text));
+
+            R24_max_max.Title1 = "Wariant 1";
+            R24_max_max.Resistor1 = FindValueNorm(requestedValue, ResistorArrayNumbers24);
+            R24_max_max.Resistor2 = FindValueNorm(requestedValue2, ResistorArrayNumbers24);
+            R24_max_max.VoltageIn = Convert.ToDouble(ResistDivide.Text);
+            //    R24_max_max.SetValue("Wariant 1",
+            //    FindValueNorm(requestedValue, ResistorArrayNumbers24),
+            //    FindValueNorm(requestedValue2, ResistorArrayNumbers24),
+            //    Convert.ToDouble(ResistDivide.Text));
 
             R24_min_min.SetValue("Wariant 2",
                 FindValueNorm(requestedValue, ResistorArrayNumbers24, true),
