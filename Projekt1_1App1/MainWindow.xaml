@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Projekt1_1App1"
         xmlns:gui="clr-namespace:Projekt1_1App1.GUI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Znajdowanie dzielnika napięć" Height="450" Width="800">
     <StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top"/>
