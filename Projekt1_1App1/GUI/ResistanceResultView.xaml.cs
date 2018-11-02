@@ -30,17 +30,35 @@ namespace Projekt1_1App1.GUI
         public string Title1
         {
             get => _title1;
-            set => SetFieldAndNotify(ref _title1, value);
+            set
+            {
+                _title1 = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Title1"));
+            }
         }
         public double Resistor1
         {
             get => _resistor1;
-            set { SetFieldAndNotify(ref _resistor1, value); OnPropertyChanged("SupplementaryResistance"); }
+            set
+            {
+                _resistor1 = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Resistor1"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SupplementaryResistance"));
+            }
         }
-        public double Resistor2 { get => _resistor2; set => SetFieldAndNotify(ref _resistor2, value);  }
+        public double Resistor2
+        {
+            get => _resistor2;
+            set
+            {
+                _resistor2 = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Resistor2"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SupplementaryResistance"));
+            }
+        }
         public double VoltageIn { get; set; }
-        public double SupplementaryResistance { get { return Resistor1 + Resistor2; } }
-        public double VoltageOut { get { return (VoltageIn / (Resistor1 + Resistor2)) * Resistor2; } }
+        public double SupplementaryResistance => Resistor1 + Resistor2;
+        public double VoltageOut => (VoltageIn / (Resistor1 + Resistor2)) * Resistor2;
         public ResistanceResultView()
         {
             InitializeComponent();
