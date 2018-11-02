@@ -26,6 +26,7 @@ namespace Projekt1_1App1.GUI
         private string _title1 = "Wariant X";
         private double _resistor1;
         private double _resistor2;
+        private double _voltageIn;
 
         public string Title1
         {
@@ -44,6 +45,7 @@ namespace Projekt1_1App1.GUI
                 _resistor1 = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Resistor1"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SupplementaryResistance"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("VoltageOut"));
             }
         }
         public double Resistor2
@@ -54,9 +56,18 @@ namespace Projekt1_1App1.GUI
                 _resistor2 = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Resistor2"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SupplementaryResistance"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("VoltageOut"));
             }
         }
-        public double VoltageIn { get; set; }
+        public double VoltageIn
+        {
+            get => _voltageIn;
+            set
+            {
+                _voltageIn = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("VoltageOut"));
+            }
+        }
         public double SupplementaryResistance => Resistor1 + Resistor2;
         public double VoltageOut => (VoltageIn / (Resistor1 + Resistor2)) * Resistor2;
         public ResistanceResultView()

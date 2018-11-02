@@ -81,46 +81,42 @@ namespace Projekt1_1App1
             R24_max_max.Resistor1 = FindValueNorm(requestedValue, ResistorArrayNumbers24);
             R24_max_max.Resistor2 = FindValueNorm(requestedValue2, ResistorArrayNumbers24);
             R24_max_max.VoltageIn = Convert.ToDouble(ResistDivide.Text);
-            //    R24_max_max.SetValue("Wariant 1",
-            //    FindValueNorm(requestedValue, ResistorArrayNumbers24),
-            //    FindValueNorm(requestedValue2, ResistorArrayNumbers24),
-            //    Convert.ToDouble(ResistDivide.Text));
+            
+            R24_min_min.Title1 = "Wariant 2";
+            R24_min_min.Resistor1 = FindValueNorm(requestedValue, ResistorArrayNumbers24, true);
+            R24_min_min.Resistor2 = FindValueNorm(requestedValue2, ResistorArrayNumbers24, true);
+            R24_min_min.VoltageIn = Convert.ToDouble(ResistDivide.Text);
 
-            R24_min_min.SetValue("Wariant 2",
-                FindValueNorm(requestedValue, ResistorArrayNumbers24, true),
-                FindValueNorm(requestedValue2, ResistorArrayNumbers24, true),
-                Convert.ToDouble(ResistDivide.Text));
+            R24_min_max.Title1 = "Wariant 3";
+            R24_min_max.Resistor1 = FindValueNorm(requestedValue, ResistorArrayNumbers24, true);
+            R24_min_max.Resistor2 = FindValueNorm(requestedValue2, ResistorArrayNumbers24);
+            R24_min_max.VoltageIn = Convert.ToDouble(ResistDivide.Text);
+            
+            R24_max_min.Title1 = "Wariant 4";
+            R24_max_min.Resistor1 = FindValueNorm(requestedValue, ResistorArrayNumbers24);
+            R24_max_min.Resistor2 = FindValueNorm(requestedValue2, ResistorArrayNumbers24, true);
+            R24_max_min.VoltageIn = Convert.ToDouble(ResistDivide.Text);
+            
 
-            R24_min_max.SetValue("Wariant 3",
-                FindValueNorm(requestedValue, ResistorArrayNumbers24, true),
-                FindValueNorm(requestedValue2, ResistorArrayNumbers24),
-                Convert.ToDouble(ResistDivide.Text));
-
-            R24_max_min.SetValue("Wariant 4",
-                FindValueNorm(requestedValue, ResistorArrayNumbers24),
-                FindValueNorm(requestedValue2, ResistorArrayNumbers24, true),
-                Convert.ToDouble(ResistDivide.Text));
-
-
-            R12_max_max.SetValue("Wariant 1",
-                FindValueNorm(requestedValue, ResistorArrayNumbers12),
-                FindValueNorm(requestedValue2, ResistorArrayNumbers12),
-                Convert.ToDouble(ResistDivide.Text));
-
-            R12_min_min.SetValue("Wariant 2",
-                FindValueNorm(requestedValue, ResistorArrayNumbers12, true),
-                FindValueNorm(requestedValue2, ResistorArrayNumbers12, true),
-                Convert.ToDouble(ResistDivide.Text));
-
-            R12_min_max.SetValue("Wariant 3",
-                FindValueNorm(requestedValue, ResistorArrayNumbers12, true),
-                FindValueNorm(requestedValue2, ResistorArrayNumbers12),
-                Convert.ToDouble(ResistDivide.Text));
-
-            R12_max_min.SetValue("Wariant 4",
-                FindValueNorm(requestedValue, ResistorArrayNumbers12),
-                FindValueNorm(requestedValue2, ResistorArrayNumbers12, true),
-                Convert.ToDouble(ResistDivide.Text));
+            R12_max_max.Title1 = "Wariant 1";
+            R12_max_max.Resistor1 = FindValueNorm(requestedValue, ResistorArrayNumbers12);
+            R12_max_max.Resistor2 = FindValueNorm(requestedValue2, ResistorArrayNumbers12);
+            R12_max_max.VoltageIn = Convert.ToDouble(ResistDivide.Text);
+            
+            R12_min_min.Title1 = "Wariant 2";
+            R12_min_min.Resistor1 = FindValueNorm(requestedValue, ResistorArrayNumbers12, true);
+            R12_min_min.Resistor2 = FindValueNorm(requestedValue2, ResistorArrayNumbers12, true);
+            R12_min_min.VoltageIn = Convert.ToDouble(ResistDivide.Text);
+            
+            R12_min_max.Title1 = "Wariant 3";
+            R12_min_max.Resistor1 = FindValueNorm(requestedValue, ResistorArrayNumbers12, true);
+            R12_min_max.Resistor2 = FindValueNorm(requestedValue2, ResistorArrayNumbers12);
+            R12_min_max.VoltageIn = Convert.ToDouble(ResistDivide.Text);
+            
+            R12_max_min.Title1 = "Wariant 4";
+            R12_max_min.Resistor1 = FindValueNorm(requestedValue, ResistorArrayNumbers12);
+            R12_max_min.Resistor2 = FindValueNorm(requestedValue2, ResistorArrayNumbers12, true);
+            R12_max_min.VoltageIn = Convert.ToDouble(ResistDivide.Text);
         }
     }
 }
