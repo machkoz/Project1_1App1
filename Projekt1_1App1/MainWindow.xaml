@@ -12,15 +12,15 @@
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top">
             <Label  Content="Rezystancja zastępcza: " Width="132"/>
-            <TextBox x:Name="ResuaSumma" Text="40" MinWidth="100" RenderTransformOrigin="-0.439,2.377"/>
-        </StackPanel>
+            <TextBox x:Name="ResuaSumma" Text="{Binding SupplementaryResistance, FallbackValue=nie udało się}" MinWidth="100" RenderTransformOrigin="-0.439,2.377"/>
+            </StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top">
             <Label  Content="Napięcie wejściowe: " Width="132"/>
-            <TextBox x:Name="ResistDivide" Text="230" MinWidth="100"/>
+            <TextBox x:Name="ResistDivide" Text="{Binding VoltageIn, FallbackValue=nie udało się}" MinWidth="100"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top">
             <Label  Content="Napięcie wyjściowe: " Width="132"/>
-            <TextBox x:Name="ResistDuo" Text="24" MinWidth="100"/>
+            <TextBox x:Name="ResistDuo" Text="{Binding VoltageOut, FallbackValue=nie udało się}" MinWidth="100"/>
             <Button Click="Button_Click4" Content="Wstaw U(wy)  : : Automat  : : 1 klik  : : WYNIK : :" Tag="R12" Width="253"/>
             <Label x:Name="ResultViewR" Width="34" Content="R = ">
             </Label>
@@ -33,18 +33,18 @@
         </StackPanel>
         <GroupBox Header="Szereg R24">
             <StackPanel Orientation="Vertical" >
-                <gui:ResistanceResultView x:Name="R24_max_max"/>
-                <gui:ResistanceResultView x:Name="R24_min_min"/>
-                <gui:ResistanceResultView x:Name="R24_min_max"/>
-                <gui:ResistanceResultView x:Name="R24_max_min"/>
+                <gui:ResistanceResultView Title1="Wariant 1" x:Name="R24_max_max"/>
+                <gui:ResistanceResultView Title1="Wariant 2" x:Name="R24_min_min"/>
+                <gui:ResistanceResultView Title1="Wariant 3" x:Name="R24_min_max"/>
+                <gui:ResistanceResultView Title1="Wariant 4" x:Name="R24_max_min"/>
             </StackPanel>
         </GroupBox>
         <GroupBox Header="Szereg R12">
             <StackPanel Orientation="Vertical" >
-                <gui:ResistanceResultView x:Name="R12_max_max"/>
-                <gui:ResistanceResultView x:Name="R12_min_min"/>
-                <gui:ResistanceResultView x:Name="R12_min_max"/>
-                <gui:ResistanceResultView x:Name="R12_max_min"/>
+                <gui:ResistanceResultView Title1="Wariant 1" x:Name="R12_max_max"/>
+                <gui:ResistanceResultView Title1="Wariant 2" x:Name="R12_min_min"/>
+                <gui:ResistanceResultView Title1="Wariant 3" x:Name="R12_min_max"/>
+                <gui:ResistanceResultView Title1="Wariant 4" x:Name="R12_max_min"/>
             </StackPanel>
         </GroupBox>
     </StackPanel>
