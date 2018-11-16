@@ -73,10 +73,11 @@ namespace Projekt1_1App1
         }
 
 
+
         private void Button_Click4(object sender, RoutedEventArgs e)
         {
-            ResultR1.Content = Convert.ToDouble(ResistDuo.Text) * (Convert.ToDouble(ResuaSumma.Text)) / Convert.ToDouble(ResistDivide.Text);
-            ResultR.Content = (Convert.ToDouble(ResuaSumma.Text)) - Convert.ToDouble(ResultR1.Content);
+            ResultR1.Content = VoltageOut * SupplementaryResistance / VoltageIn;
+            ResultR.Content = SupplementaryResistance - Convert.ToDouble(ResultR1.Content);
 
             double requestedValue = Convert.ToDouble(ResultR.Content);
             double requestedValue2 = Convert.ToDouble(ResultR1.Content);
@@ -84,36 +85,36 @@ namespace Projekt1_1App1
 
             R24_max_max.Resistor1 = FindValueNorm(requestedValue, ResistorArrayNumbers24);
             R24_max_max.Resistor2 = FindValueNorm(requestedValue2, ResistorArrayNumbers24);
-            R24_max_max.VoltageIn = Convert.ToDouble(ResistDivide.Text);
+            R24_max_max.VoltageIn = VoltageIn;
             
             R24_min_min.Resistor1 = FindValueNorm(requestedValue, ResistorArrayNumbers24, true);
             R24_min_min.Resistor2 = FindValueNorm(requestedValue2, ResistorArrayNumbers24, true);
-            R24_min_min.VoltageIn = Convert.ToDouble(ResistDivide.Text);
+            R24_min_min.VoltageIn = VoltageIn;
 
             R24_min_max.Resistor1 = FindValueNorm(requestedValue, ResistorArrayNumbers24, true);
             R24_min_max.Resistor2 = FindValueNorm(requestedValue2, ResistorArrayNumbers24);
-            R24_min_max.VoltageIn = Convert.ToDouble(ResistDivide.Text);
+            R24_min_max.VoltageIn = VoltageIn;
             
             R24_max_min.Resistor1 = FindValueNorm(requestedValue, ResistorArrayNumbers24);
             R24_max_min.Resistor2 = FindValueNorm(requestedValue2, ResistorArrayNumbers24, true);
-            R24_max_min.VoltageIn = Convert.ToDouble(ResistDivide.Text);
+            R24_max_min.VoltageIn = VoltageIn;
             
 
             R12_max_max.Resistor1 = FindValueNorm(requestedValue, ResistorArrayNumbers12);
             R12_max_max.Resistor2 = FindValueNorm(requestedValue2, ResistorArrayNumbers12);
-            R12_max_max.VoltageIn = Convert.ToDouble(ResistDivide.Text);
+            R12_max_max.VoltageIn = VoltageIn;
             
             R12_min_min.Resistor1 = FindValueNorm(requestedValue, ResistorArrayNumbers12, true);
             R12_min_min.Resistor2 = FindValueNorm(requestedValue2, ResistorArrayNumbers12, true);
-            R12_min_min.VoltageIn = Convert.ToDouble(ResistDivide.Text);
+            R12_min_min.VoltageIn = VoltageIn;
             
             R12_min_max.Resistor1 = FindValueNorm(requestedValue, ResistorArrayNumbers12, true);
             R12_min_max.Resistor2 = FindValueNorm(requestedValue2, ResistorArrayNumbers12);
-            R12_min_max.VoltageIn = Convert.ToDouble(ResistDivide.Text);
+            R12_min_max.VoltageIn = VoltageIn;
             
             R12_max_min.Resistor1 = FindValueNorm(requestedValue, ResistorArrayNumbers12);
             R12_max_min.Resistor2 = FindValueNorm(requestedValue2, ResistorArrayNumbers12, true);
-            R12_max_min.VoltageIn = Convert.ToDouble(ResistDivide.Text);
+            R12_max_min.VoltageIn = VoltageIn;
         }
 
     }

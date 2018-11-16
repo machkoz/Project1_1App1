@@ -12,15 +12,15 @@
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top">
             <Label  Content="Rezystancja zastępcza: " Width="132"/>
-            <TextBox x:Name="ResuaSumma" Text="{Binding SupplementaryResistance, FallbackValue=nie udało się}" MinWidth="100" RenderTransformOrigin="-0.439,2.377"/>
+            <TextBox Text="{Binding SupplementaryResistance, FallbackValue=nie udało się}" MinWidth="100" RenderTransformOrigin="-0.439,2.377"/>
             </StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top">
             <Label  Content="Napięcie wejściowe: " Width="132"/>
-            <TextBox x:Name="ResistDivide" Text="{Binding VoltageIn, FallbackValue=nie udało się}" MinWidth="100"/>
+            <TextBox Text="{Binding VoltageIn, FallbackValue=nie udało się}" MinWidth="100"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top">
             <Label  Content="Napięcie wyjściowe: " Width="132"/>
-            <TextBox x:Name="ResistDuo" Text="{Binding VoltageOut, FallbackValue=nie udało się}" MinWidth="100"/>
+            <TextBox Text="{Binding VoltageOut, FallbackValue=nie udało się}" MinWidth="100"/>
             <Button Click="Button_Click4" Content="Wstaw U(wy)  : : Automat  : : 1 klik  : : WYNIK : :" Tag="R12" Width="253"/>
             <Label x:Name="ResultViewR" Width="34" Content="R = ">
             </Label>
