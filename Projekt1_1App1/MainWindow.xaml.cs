@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -19,16 +20,40 @@ namespace Projekt1_1App1
     /// <summary>
     /// Logika interakcji dla klasy MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : Window, INotifyPropertyChanged
     {
         List<int> ResistorArrayNumbers24 = new List<int> { 10, 11, 12, 13, 15, 16, 18, 20, 22, 24, 27, 30, 33, 36, 39, 43, 47, 51, 56, 62, 68, 75, 82, 91 };
         List<int> ResistorArrayNumbers12 = new List<int> { 10, 12, 15, 18, 22, 27, 33, 39, 47, 56, 68, 82 };
 
+        private double _resistOne;
+        private double _resistTwo;
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
         public double SupplementaryResistance { get; set; }
         public double VoltageIn { get; set; }
         public double VoltageOut { get; set; }
+        public double ResistOne
+        {
+            get => _resistOne;
+            set
+            {
+                _resistOne = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ResistOne"));
+            }
+        }
 
-        public MainWindow()
+        public double ResistTwo
+        {
+            get => _resistTwo;
+            set
+            {
+                _resistTwo = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ResistTwo"));
+            }
+}
+
+public MainWindow()
         {
             InitializeComponent();
             DataContext = this;
@@ -72,15 +97,13 @@ namespace Projekt1_1App1
             }
         }
 
-
-
         private void Button_Click4(object sender, RoutedEventArgs e)
         {
-            ResultR1.Content = VoltageOut * SupplementaryResistance / VoltageIn;
-            ResultR.Content = SupplementaryResistance - Convert.ToDouble(ResultR1.Content);
+            ResistTwo = VoltageOut * SupplementaryResistance / VoltageIn;
+            ResistOne = SupplementaryResistance - ResistTwo;
 
-            double requestedValue = Convert.ToDouble(ResultR.Content);
-            double requestedValue2 = Convert.ToDouble(ResultR1.Content);
+            double requestedValue = ResistOne;
+            double requestedValue2 = ResistTwo;
 
 
             R24_max_max.Resistor1 = FindValueNorm(requestedValue, ResistorArrayNumbers24);
