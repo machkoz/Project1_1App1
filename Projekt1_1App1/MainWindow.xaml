@@ -12,23 +12,24 @@
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top">
             <Label  Content="Rezystancja zastępcza: " Width="132"/>
-            <TextBox Text="{Binding SupplementaryResistance, FallbackValue=nie udało się}" MinWidth="100" RenderTransformOrigin="-0.439,2.377"/>
+            <StackPanel Orientation="Horizontal">
+                <TextBox BorderBrush="{x:Null}" Text="{Binding SupplementaryResistance, FallbackValue=nie udało się, ConverterCulture=PL-pl, StringFormat={}{0:F2}}" Foreground="Blue" VerticalContentAlignment="Center"/>
+                <Label Content="Ω" />
+            </StackPanel>
             </StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top">
             <Label  Content="Napięcie wejściowe: " Width="132"/>
-            <TextBox Text="{Binding VoltageIn, FallbackValue=nie udało się}" MinWidth="100"/>
+            <TextBox Text="{Binding VoltageIn, FallbackValue=nie udało się, ConverterCulture=PL-pl}" MinWidth="100"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top">
             <Label  Content="Napięcie wyjściowe: " Width="132"/>
-            <TextBox Text="{Binding VoltageOut, FallbackValue=nie udało się}" MinWidth="100"/>
+            <TextBox Text="{Binding VoltageOut, FallbackValue=nie udało się, ConverterCulture=PL-pl}" MinWidth="100" />
             <Button Click="Button_Click4" Content="Wstaw U(wy)  : : Automat  : : 1 klik  : : WYNIK : :" Tag="R12" Width="253"/>
-            <Label x:Name="ResultViewR" Width="34" Content="R = ">
+            
+            <Label Content="{Binding ResistOne, FallbackValue=----}" ContentStringFormat="R1 = {0:F02} Ω" Width="162">
             </Label>
-            <Label Content="{Binding ResistOne, FallbackValue=nie udało się}" Width="162">
-            </Label>
-            <Label x:Name="ResultViewR1" Width="34" Content="R1 = ">
-            </Label>
-            <Label Content="{Binding ResistTwo, FallbackValue=nie udało się}" Width="162">
+            
+            <Label Content="{Binding ResistTwo, FallbackValue=----}" ContentStringFormat="R2 = {0:F02} Ω" Width="162">
             </Label>
         </StackPanel>
         <GroupBox Header="Szereg R24">

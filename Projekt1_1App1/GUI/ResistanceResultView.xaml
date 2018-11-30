@@ -7,15 +7,15 @@
              mc:Ignorable="d"              >
     <Grid >
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top">
-            <Label  Width="72" Content="{Binding Title1, FallbackValue=nie udało się}"/>
-            <Label Width="47" Content="R(p) = "/>
-            <Label  Width="92" Content="{Binding Resistor1, FallbackValue=rezystancja1}"/>
-            <Label  Width="50" Content="R1(p) = "/>
-            <Label Width="92" Content="{Binding Resistor2, FallbackValue=rezystancja2}"/>
-            <Label Width="60" Content="U(wy/p) = "/>
-            <Label Width="92" Content="{Binding VoltageOut, FallbackValue=napięcie wyjściowe}"/>
-            <Label Width="70" Content="Rez.zast. = "/>
-            <Label Width="92" Content="{Binding SupplementaryResistance, FallbackValue=rezystancja zastępcza}"/>
+            <Label  Width="92" Content="{Binding Title1, FallbackValue=nie udało się}"/>
+            
+            <Label  Width="122" Content="{Binding Resistor1, FallbackValue=rezystancja1}" ContentStringFormat="R1(p) = {0:F02} Ω"/>
+            
+            <Label Width="112" Content="{Binding Resistor2, FallbackValue=rezystancja2}" ContentStringFormat="R2(p) = {0:F02} Ω"/>
+            
+            <Label Width="132" Content="{Binding VoltageOut, FallbackValue=napięcie wyjściowe}" ContentStringFormat="U(wy/p) = {0:F02} V"/>
+            
+            <Label Width="132" Content="{Binding SupplementaryResistance, FallbackValue=rezystancja zastępcza}" ContentStringFormat="Rez. zast. = {0:F02} Ω"/>
         </StackPanel>
     </Grid>
 </UserControl>
