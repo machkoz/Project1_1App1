@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Projekt1_1App1"
         xmlns:gui="clr-namespace:Projekt1_1App1.GUI"
+        xmlns:system="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
         Title="Znajdowanie dzielnika napięć" Height="450" Width="800">
     <StackPanel>
@@ -16,20 +17,29 @@
                 <TextBox BorderBrush="{x:Null}" Text="{Binding SupplementaryResistance, FallbackValue=nie udało się, ConverterCulture=PL-pl, StringFormat={}{0:F2}}" Foreground="Blue" VerticalContentAlignment="Center"/>
                 <Label Content="Ω" />
             </StackPanel>
-            </StackPanel>
+        </StackPanel>
+        
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top">
             <Label  Content="Napięcie wejściowe: " Width="132"/>
-            <TextBox Text="{Binding VoltageIn, FallbackValue=nie udało się, ConverterCulture=PL-pl}" MinWidth="100"/>
+            <TextBox BorderBrush="{x:Null}" Text="{Binding VoltageIn, FallbackValue=nie udało się, ConverterCulture=PL-pl, StringFormat={}{0:F2}}"  Foreground="Blue" VerticalContentAlignment="Center"/>
+            <Label Content="V" />
+            <ComboBox SelectedItem="{Binding SelectedRSeries, FallbackValue=R24}">
+            <system:String>R03</system:String>
+            <system:String>R06</system:String>
+            <system:String>R12</system:String>
+            <system:String>R24</system:String>
+        </ComboBox>
         </StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top">
             <Label  Content="Napięcie wyjściowe: " Width="132"/>
-            <TextBox Text="{Binding VoltageOut, FallbackValue=nie udało się, ConverterCulture=PL-pl}" MinWidth="100" />
+            <TextBox BorderBrush="{x:Null}" Text="{Binding VoltageOut, FallbackValue=nie udało się, ConverterCulture=PL-pl, StringFormat={}{0:F2}}"  Foreground="Blue" VerticalContentAlignment="Center"/>
+            <Label Content="V" />
             <Button Click="Button_Click4" Content="Wstaw U(wy)  : : Automat  : : 1 klik  : : WYNIK : :" Tag="R12" Width="253"/>
-            
+
             <Label Content="{Binding ResistOne, FallbackValue=----}" ContentStringFormat="R1 = {0:F02} Ω" Width="162">
             </Label>
-            
-            <Label Content="{Binding ResistTwo, FallbackValue=----}" ContentStringFormat="R2 = {0:F02} Ω" Width="162">
+
+            <Label Content="{Binding ResistTwo, FallbackValue=----}" ContentStringFormat="R2 = {0:F02} Ω" Width="142">
             </Label>
         </StackPanel>
         <GroupBox Header="Szereg R24">
@@ -40,13 +50,6 @@
                 <gui:ResistanceResultView Title1="Wariant 4" x:Name="R24_max_min"/>
             </StackPanel>
         </GroupBox>
-        <GroupBox Header="Szereg R12">
-            <StackPanel Orientation="Vertical" >
-                <gui:ResistanceResultView Title1="Wariant 1" x:Name="R12_max_max"/>
-                <gui:ResistanceResultView Title1="Wariant 2" x:Name="R12_min_min"/>
-                <gui:ResistanceResultView Title1="Wariant 3" x:Name="R12_min_max"/>
-                <gui:ResistanceResultView Title1="Wariant 4" x:Name="R12_max_min"/>
-            </StackPanel>
-        </GroupBox>
+        
     </StackPanel>
 </Window>

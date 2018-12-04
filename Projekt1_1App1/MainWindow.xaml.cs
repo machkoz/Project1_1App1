@@ -24,12 +24,15 @@ namespace Projekt1_1App1
     {
         List<int> ResistorArrayNumbers24 = new List<int> { 10, 11, 12, 13, 15, 16, 18, 20, 22, 24, 27, 30, 33, 36, 39, 43, 47, 51, 56, 62, 68, 75, 82, 91 };
         List<int> ResistorArrayNumbers12 = new List<int> { 10, 12, 15, 18, 22, 27, 33, 39, 47, 56, 68, 82 };
+        List<int> ResistorArrayNumbers06 = new List<int> { 10, 15, 22, 33, 47, 68 };
+        List<int> ResistorArrayNumbers03 = new List<int> { 10, 22, 47 };
 
         private double _resistOne;
         private double _resistTwo;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
+        public string SelectedRSeries { get; set; }
         public double SupplementaryResistance { get; set; }
         public double VoltageIn { get; set; }
         public double VoltageOut { get; set; }
@@ -51,9 +54,9 @@ namespace Projekt1_1App1
                 _resistTwo = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ResistTwo"));
             }
-}
+        }
 
-public MainWindow()
+        public MainWindow()
         {
             InitializeComponent();
             DataContext = this;
@@ -101,43 +104,63 @@ public MainWindow()
         {
             ResistTwo = VoltageOut * SupplementaryResistance / VoltageIn;
             ResistOne = SupplementaryResistance - ResistTwo;
+            Debug.WriteLine("Wybrano szereg: " + SelectedRSeries);
 
             double requestedValue = ResistOne;
             double requestedValue2 = ResistTwo;
+            List<int> ResistorArrayNumbers = new List<int> ();
 
-
-            R24_max_max.Resistor1 = FindValueNorm(requestedValue, ResistorArrayNumbers24);
-            R24_max_max.Resistor2 = FindValueNorm(requestedValue2, ResistorArrayNumbers24);
-            R24_max_max.VoltageIn = VoltageIn;
+            if (SelectedRSeries == "R24")
+            {
+                ResistorArrayNumbers = ResistorArrayNumbers24;
+            }
+            if (SelectedRSeries == "R06")
+            {
+                ResistorArrayNumbers = ResistorArrayNumbers06;
+            }
+            if (SelectedRSeries == "R03")
+            {
+                ResistorArrayNumbers = ResistorArrayNumbers03;
+            }
+            if (SelectedRSeries == "R12")
+            {
+                ResistorArrayNumbers = ResistorArrayNumbers12;
+            }
+                    
+                
             
-            R24_min_min.Resistor1 = FindValueNorm(requestedValue, ResistorArrayNumbers24, true);
-            R24_min_min.Resistor2 = FindValueNorm(requestedValue2, ResistorArrayNumbers24, true);
+            R24_max_max.Resistor1 = FindValueNorm(requestedValue, ResistorArrayNumbers);
+            R24_max_max.Resistor2 = FindValueNorm(requestedValue2, ResistorArrayNumbers);
+            R24_max_max.VoltageIn = VoltageIn;
+
+            R24_min_min.Resistor1 = FindValueNorm(requestedValue, ResistorArrayNumbers, true);
+            R24_min_min.Resistor2 = FindValueNorm(requestedValue2, ResistorArrayNumbers, true);
             R24_min_min.VoltageIn = VoltageIn;
 
-            R24_min_max.Resistor1 = FindValueNorm(requestedValue, ResistorArrayNumbers24, true);
-            R24_min_max.Resistor2 = FindValueNorm(requestedValue2, ResistorArrayNumbers24);
+            R24_min_max.Resistor1 = FindValueNorm(requestedValue, ResistorArrayNumbers, true);
+            R24_min_max.Resistor2 = FindValueNorm(requestedValue2, ResistorArrayNumbers);
             R24_min_max.VoltageIn = VoltageIn;
-            
-            R24_max_min.Resistor1 = FindValueNorm(requestedValue, ResistorArrayNumbers24);
-            R24_max_min.Resistor2 = FindValueNorm(requestedValue2, ResistorArrayNumbers24, true);
-            R24_max_min.VoltageIn = VoltageIn;
-            
 
-            R12_max_max.Resistor1 = FindValueNorm(requestedValue, ResistorArrayNumbers12);
-            R12_max_max.Resistor2 = FindValueNorm(requestedValue2, ResistorArrayNumbers12);
-            R12_max_max.VoltageIn = VoltageIn;
-            
-            R12_min_min.Resistor1 = FindValueNorm(requestedValue, ResistorArrayNumbers12, true);
-            R12_min_min.Resistor2 = FindValueNorm(requestedValue2, ResistorArrayNumbers12, true);
-            R12_min_min.VoltageIn = VoltageIn;
-            
-            R12_min_max.Resistor1 = FindValueNorm(requestedValue, ResistorArrayNumbers12, true);
-            R12_min_max.Resistor2 = FindValueNorm(requestedValue2, ResistorArrayNumbers12);
-            R12_min_max.VoltageIn = VoltageIn;
-            
-            R12_max_min.Resistor1 = FindValueNorm(requestedValue, ResistorArrayNumbers12);
-            R12_max_min.Resistor2 = FindValueNorm(requestedValue2, ResistorArrayNumbers12, true);
-            R12_max_min.VoltageIn = VoltageIn;
+            R24_max_min.Resistor1 = FindValueNorm(requestedValue, ResistorArrayNumbers);
+            R24_max_min.Resistor2 = FindValueNorm(requestedValue2, ResistorArrayNumbers, true);
+            R24_max_min.VoltageIn = VoltageIn;
+
+
+            //R12_max_max.Resistor1 = FindValueNorm(requestedValue, ResistorArrayNumbers12);
+            //R12_max_max.Resistor2 = FindValueNorm(requestedValue2, ResistorArrayNumbers12);
+            //R12_max_max.VoltageIn = VoltageIn;
+
+            //R12_min_min.Resistor1 = FindValueNorm(requestedValue, ResistorArrayNumbers12, true);
+            //R12_min_min.Resistor2 = FindValueNorm(requestedValue2, ResistorArrayNumbers12, true);
+            //R12_min_min.VoltageIn = VoltageIn;
+
+            //R12_min_max.Resistor1 = FindValueNorm(requestedValue, ResistorArrayNumbers12, true);
+            //R12_min_max.Resistor2 = FindValueNorm(requestedValue2, ResistorArrayNumbers12);
+            //R12_min_max.VoltageIn = VoltageIn;
+
+            //R12_max_min.Resistor1 = FindValueNorm(requestedValue, ResistorArrayNumbers12);
+            //R12_max_min.Resistor2 = FindValueNorm(requestedValue2, ResistorArrayNumbers12, true);
+            //R12_max_min.VoltageIn = VoltageIn;
         }
 
     }
