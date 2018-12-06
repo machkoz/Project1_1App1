@@ -32,7 +32,7 @@ namespace Projekt1_1App1
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public string SelectedRSeries { get; set; }
+        public string SelectedRSeries { get; set; } = "R24";
         public double SupplementaryResistance { get; set; }
         public double VoltageIn { get; set; }
         public double VoltageOut { get; set; }

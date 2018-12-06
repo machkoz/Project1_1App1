@@ -7,7 +7,7 @@
         xmlns:gui="clr-namespace:Projekt1_1App1.GUI"
         xmlns:system="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
-        Title="Znajdowanie dzielnika napięć" Height="450" Width="800">
+        Title="Znajdowanie dzielnika napięć v1.0.0" SizeToContent="WidthAndHeight" >
     <StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top"/>
